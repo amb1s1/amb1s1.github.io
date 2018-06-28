@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>642-832 TSHOOT test Tips - Layer 2 issues </title>
+  <meta name="description" content="        TSHOOT test in general can be   overwhelming, but if you take the  entire test and look at it from one technology at a time, it can be  really easy. ...">
+
+  
+  
+  <link rel="stylesheet" href="http://localhost:4000/assets/style.css">
+
+  <link rel="canonical" href="http://localhost:4000/2011/05/03/layer2iissues.html">
+  <link rel="alternate" type="application/rss+xml" title="David Gomez" href="http://localhost:4000/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="border-bottom-thick px-2 clearfix">
+  <div class="left sm-width-full py-1 mt-1 mt-lg-0">
+    <a class="align-middle link-primary text-accent" href="/">
+      David Gomez
+    </a>
+  </div>
+  <div class="right sm-width-full">
+    <ul class="list-reset mt-lg-1 mb-2 mb-lg-1">
+      
+        
+      
+        
+        <li class="inline-block">
+          <a class="align-middle link-primary mr-2 mr-lg-0 ml-lg-2" href="/about/">
+            About
+          </a>
+        </li>
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container px-2 mx-auto mb4" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="h0 col-9 sm-width-full py-4 mt-3 inline-block" itemprop="name headline">642-832 TSHOOT test Tips - Layer 2 issues </h1>
+  <div class="col-4 sm-width-full mt-1 border-top-thin ">
+    <p class="mb-3 py-2 bold h4"><time datetime="2011-05-03T14:27:00-04:00" itemprop="datePublished">May 3, 2011</time></p>
+  </div>
+
+  <div class="prose" itemprop="articleBody">
+      <p>       
+ TSHOOT test in general can be   overwhelming, but if you take the  entire test and look at it from one technology at a time, it can be  really easy. I’m going to start to point out issues that we may counter with different technologies base on the TSHOOT blueprint.On my first post I’m going to start with layer 2 issues.
+    Layer 2 issues:
+Misconfiguration of the trunk encapsulation (Dot1q, ISL) - sh interface trunk
+Misconfiguration of the port mode (Trunk and Access) - sh vlan, sh int switchport
+Vlan not allowed on the trunk port - sh interface trunk
+Adding an Vlan to a switchport and without adding a Vlan is not in the Vlan Datatabse - sh vlan brief 
+Duplex and Speed mismatch - sh log and sh interface and the interface that you want to see
+VTP Issues 
+VLAN Failing to propagate to in the topology - sh vtp status
+Wrong VTP Mode - Having a device in transparent mode between a client and a server can cause problem - sh vtp status
+Wrong MD5 digest password - Sh vtp passwor4d - sh vtp status *note the MD5 password sometime look the same, but the hash is different (sh vtp status), the way to fix that is by removing the password and apply the password again. 
+Dot1Q issue only - Native Vlan Mismatch - sh interface switchport 
+    8. Issues with DTP (Dynamic Trunk Protocol) - sh interface switchport
+dynamic mode auto + dynamic mode auto = No Trunk
+dynamic mode on + dynamic mode Nonegotiate=  No trunking
+dynamic mode Auto + dynamic mode desirable= Trunk
+dynamic mode on + dynamic mode auto= Trunk
+                                Etherchannel Layer 2 Issues:
+Misconfiguration between the members
+All members has to have identical configurations *tips always configure the etherchannel configuration with the interface range command.
+    2. Issues with the negotiation protocols (LACP(open standar) and PAgP(Cisco)
+PAgP two modes - Desirable and Auto
+LACP two modes - Active and Pasive
+On is turning statical the etherchannel on
+The etherchannel can’t be mismatch with two type of negotiation protocols
+     3. Issues with PAgP Negotiation Protocol
+Desirable + Desirable = Etherchannel is going to be Up
+Desirable + Auto = Etherchannel is going to be Up
+Auto + Auto = Etherchannel is not going to be Up
+     4. Issues with LACP Negotiation Protocol
+Active + Active = Etherchannel is going to be Up
+Active + Passive = Etherchannel is going to be Up
+Passive + Passive = Etherchannel is not going to be Up
+Command for Etherchannel Troubleshooting:
+sh interface trunk
+sh etherchannel summary
+sh etherchannel port-channel
+                                     STP (Spanning Tree Protocol)
+High port utilization ( a loop can cause this issue) - sh processes cpu 
+BPDU Issues propagating 
+Trunk link have to be established on all interfaces participating in the spanning tree sh interface trunk
+    2. Misconfiguration of the STP mode PVST, MST and Rapid-PVST - sh spanning-tree vlan vlan#</p>
+<ol>
+  <li>STP not anable on the vlan - sh spanning-tree vlan and the vlan #
+                                              Conclusion
+It may look big, but with couple of commands you can see a most of the problems.
+Next Tutorial is going to be Layer 3 EIGRP Issues. Thanks</li>
+</ol>
+
+  </div>
+
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+
+  <div class="col-4 sm-width-full left mr-lg-4 mt-3">
+    <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/2011/05/02/tshootnetfile.html">
+      <span class="h5 bold text-accent">Previous</span>
+      <p class="bold h3 link-primary mb-1">TSHOOT GNS3 Lab .net file</p>
+      <p>TSHOOT GNS3 Lab .net fileTo be able to load this file to GNS3 on your computer you are going to...</p>
+    </a>
+  </div>
+  
+  
+  <div class="col-4 sm-width-full left mt-3">
+    <a class="no-underline border-top-thin py-1 block" href="http://localhost:4000/2011/05/04/layer3eigrpissues.html">
+      <span class="h5 bold text-accent">Next</span>
+      <p class="bold h3 link-primary mb-1">642-832 TSHOOT Test Tips - Layer 3 EIGRP issues </p>
+      <p>LAYER 3 EIGRP Issues Access list issues blocking protocol 88 – sh access-list Misconfiguration of the network and neighbor statements...</p>
+    </a>
+  </div>
+
+
+</div>
+
+    </div>
+
+    <div class="border-top-thin clearfix mt-2 mt-lg-4">
+  <div class="container mx-auto px-2">
+    <p class="col-8 sm-width-full left py-2 mb-0">This project is maintained by <a class="text-accent" href="https://github.com/jekyll">jekyll</a></p>
+    <ul class="list-reset right clearfix sm-width-full py-2 mb-2 mb-lg-0">
+      <li class="inline-block mr-1">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="David Gomez">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </li>
+      <li class="inline-block">
+        <a class="github-button" href="https://github.com/jekyll/" data-icon="octicon-star" data-count-href="jekyll//stargazers" data-count-api="/repos/jekyll/#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star jekyll/ on GitHub">Star</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+  </body>
+
+</html>
