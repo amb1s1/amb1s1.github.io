@@ -143,12 +143,9 @@ code {
     text-align: left; }
   .prose table th,
   .prose table td {
-    padding: 16px 32px 16px 2px;
-    border-top: 1px solid #181818;
-    border-bottom: 1px solid #181818; }
+    padding: 16px 32px 16px 2px; }
   .prose table tr {
-    background-color: #fff;
-    border-top: 1px solid #181818; }
+    background-color: #fff; }
   .prose table tr th {
     border-top: 2px solid #181818;
     border-bottom: 2px solid #181818; }
@@ -185,20 +182,12 @@ code {
   padding-left: 0; }
 
 /* Border utilities */
-.border-bottom-thick {
-  border-bottom: 2px solid;
-  border-color: currentColor; }
-
 .border-bottom-thin {
   border-bottom: 1px solid;
   border-color: currentColor; }
 
 .border-top-thick {
   border-top: 2px solid;
-  border-color: currentColor; }
-
-.border-top-thin {
-  border-top: 1px solid;
   border-color: currentColor; }
 
 .border-0 {
@@ -258,7 +247,7 @@ code {
   width: 66.6666666667%; }
 
 .col-9 {
-  width: 75%; }
+  width: 100%; }
 
 .col-10 {
   width: 83.3333333333%; }

@@ -18,7 +18,7 @@ If you passed the Route and Switch test your are basically ready for the TSHOOT,
 I have couple of tips for this test
 1. Recreate the TSHOOT topology over, over and over to get used to the IP scheme and the entire topology.
 2. Study all my TSHOOT notes from this blog.
-3. Watch the TSHOOT Bull eye Strategy on youtube http://www.youtube.com/watch?v=3Bo4Pw82G2M , this youtube video talk about how to tackle the test. 
+3. Watch the TSHOOT Bull eye Strategy on youtube <http://www.youtube.com/watch?v=3Bo4Pw82G2M> , this youtube video talk about how to tackle the test. 
 4. Read the first couple of chapter of the TSHOOT Cisco Press book where they talk Theories. 
 5. Watch the TSHOOT CBT Nugget 
 Again, I love this the TSHOOT exam and with a lot of effort and love to the technology you will pass this test.  
